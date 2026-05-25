@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Hamyon - Your Financial World in One Wallet. Secure, fast, modern digital wallet with multiple financial services.">
+  <meta name="keywords" content="digital wallet, fintech, Hamyon, secure payments, mobile banking">
+  <meta name="author" content="Hamyon">
+  <title>Hamyon | Premium Digital Wallet</title>
+  <!-- Google Fonts + Preconnect -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafaff;
+      color: #0f0f1a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    /* Dark / Light mode variables + toggles */
+    :root {
+      --bg-primary: #fefeff;
+      --bg-secondary: #f8f9ff;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --text-primary: #0b0b1a;
+      --text-secondary: #4a4a6a;
+      --border-light: rgba(108, 59, 255, 0.12);
+      --shadow-sm: 0 20px 35px -12px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(108, 59, 255, 0.05);
+      --gradient-primary: linear-gradient(135deg, #6C3BFF 0%, #8B5CFF 50%, #B084FF 100%);
+      --gradient-glow: radial-gradient(circle at 30% 10%, rgba(108, 59, 255, 0.2), transparent);
+    }
+
+    body.dark {
+      --bg-primary: #0a0a14;
+      --bg-secondary: #10101c;
+      --card-bg: rgba(20, 20, 40, 0.7);
+      --text-primary: #f0f0ff;
+      --text-secondary: #b0b0d0;
+      --border-light: rgba(176, 132, 255, 0.2);
+      --shadow-sm: 0 20px 35px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(108, 59, 255, 0.2);
+    }
+
+    body {
+      background: var(--bg-primary);
+      transition: background 0.3s ease, color 0.2s;
+    }
+
+    /* glassmorphism core */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(176, 132, 255, 0.2);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 45px -12px rgba(108, 59, 255, 0.25);
+      border-color: rgba(176, 132, 255, 0.4);
+    }
+
+    /* Buttons */
+    .btn-grad {
+      background: var(--gradient-primary);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.8rem 1.8rem;
+      border-radius: 3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 18px rgba(108, 59, 255, 0.3);
+      font-size: 1rem;
+    }
+
+    .btn-grad i {
+      font-size: 1.2rem;
+    }
+
+    .btn-grad:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 30px rgba(108, 59, 255, 0.45);
+      filter: brightness(1.02);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid rgba(108, 59, 255, 0.5);
+      border-radius: 3rem;
+      padding: 0.7rem 1.6rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: all 0.2s;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    /* hero animated bg */
+    .hero-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .animated-gradient-bg {
+      position: absolute;
+      top: -30%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(108, 59, 255, 0.2), rgba(176, 132, 255, 0.05), transparent);
+      filter: blur(70px);
+      animation: floatBg 18s infinite alternate ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatBg {
+      0% { transform: translate(0%, 0%) scale(1); opacity: 0.5; }
+      100% { transform: translate(5%, -5%) scale(1.1); opacity: 0.9; }
+    }
+
+    /* 3D mockup */
+    .mockup-3d {
+      filter: drop-shadow(0 25px 25px rgba(0,0,0,0.15));
+      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+      transition: transform 0.4s ease;
+    }
+
+    .mockup-3d:hover {
+      transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
+    }
+
+    /* feature icons */
+    .feature-icon {
+      background: linear-gradient(145deg, rgba(108, 59, 255, 0.2), rgba(176, 132, 255, 0.1));
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #6C3BFF;
+    }
+
+    /* counters */
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* accordion FAQ */
+    .faq-question {
+      background: var(--card-bg);
+      border-radius: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+      cursor: pointer;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .faq-question.active .faq-answer {
+      max-height: 300px;
+      margin-top: 1rem;
+      opacity: 1;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.2s;
+      opacity: 0;
+      color: var(--text-secondary);
+    }
+
+    /* app preview floating animation */
+    .floating-card {
+      animation: floatSoft 5s infinite ease-in-out;
+    }
+
+    @keyframes floatSoft {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      section {
+        padding: 3rem 0;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+
+    /* dark mode toggle */
+    .theme-toggle {
+      background: var(--card-bg);
+      border-radius: 3rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: #8B5CFF;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar minimal -->
+  <nav style="position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); background: rgba(var(--bg-primary), 0.7); padding: 1rem 0;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-weight: 800; font-size: 1.8rem; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent;">Hamyon</div>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div class="theme-toggle" id="darkModeToggle">
+          <i class="fas fa-moon" id="themeIcon" style="color: #6C3BFF;"></i>
+        </div>
+        <a href="#download" class="btn-grad" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-apple"></i> Get App</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-bg" style="position: relative; overflow: hidden; padding: 2rem 0 4rem;">
+      <div class="animated-gradient-bg"></div>
+      <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; position: relative; z-index: 2;">
+        <div style="flex: 1.2; min-width: 280px;">
+          <h1 style="font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 800; line-height: 1.2; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent;">Your Financial World in One Wallet</h1>
+          <p style="font-size: 1.2rem; color: var(--text-secondary); margin: 1.5rem 0 2rem;">Hamyon helps users access and manage financial services easily, securely, and instantly.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#" class="btn-grad"><i class="fab fa-google-play"></i> Google Play</a>
+            <a href="#" class="btn-grad" style="background: #1a1a2e; box-shadow: none;"><i class="fab fa-apple"></i> App Store</a>
+          </div>
+        </div>
+        <div style="flex: 0.9; display: flex; justify-content: center;">
+          <img src="https://placehold.co/600x500/ffffff/6C3BFF?text=Hamyon+Mockup&font=montserrat" alt="App Mockup" class="mockup-3d" style="width: 100%; max-width: 320px; border-radius: 3rem; box-shadow: 0 35px 50px -20px rgba(108,59,255,0.4);">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="background: var(--bg-secondary);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span style="background: rgba(108,59,255,0.12); padding: 0.3rem 1rem; border-radius: 2rem; font-weight: 600;">Premium Features</span>
+          <h2 style="font-size: 2.3rem; margin-top: 1rem;">Powerful & intuitive tools</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-layer-group"></i></div><h3 style="margin: 1rem 0 0.5rem;">Multiple services</h3><p>Banking, payments, cards, all unified.</p></div>
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3 style="margin: 1rem 0 0.5rem;">Fast partner access</h3><p>Instant links to banking apps.</p></div>
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3 style="margin: 1rem 0 0.5rem;">Secure digital wallet</h3><p>Bank-grade encryption & biometrics.</p></div>
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-smile-wink"></i></div><h3 style="margin: 1rem 0 0.5rem;">User-friendly experience</h3><p>Clean UI, effortless navigation.</p></div>
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div><h3 style="margin: 1rem 0 0.5rem;">Lightning-fast performance</h3><p>Real-time transactions, no delays.</p></div>
+          <div class="glass-card" style="padding: 1.8rem;"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3 style="margin: 1rem 0 0.5rem;">Smart financial management</h3><p>AI insights & budgeting tools.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Hamyon -->
+    <section>
+      <div class="container">
+        <div class="glass-card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2.5rem; padding: 2rem;">
+          <div style="flex:1"><i class="fas fa-wallet" style="font-size: 4rem; color:#8B5CFF;"></i><h2 style="font-size: 2rem;">About Hamyon</h2><p style="color: var(--text-secondary); margin-top: 1rem;">Hamyon is a modern digital wallet platform designed to simplify financial access and digital banking services. We combine elegance with security, giving you complete control over your financial life. Seamless payments, lightning-fast transfers, and top-tier privacy — all in one place.</p></div>
+          <div style="flex:0.8; text-align: center;"><img src="https://placehold.co/400x300/f0f0ff/6C3BFF?text=Secure+Wallet" style="width:100%; border-radius: 2rem; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);" alt="about"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Preview Section with floating cards -->
+    <section style="background: var(--bg-secondary);">
+      <div class="container">
+        <div style="text-align: center;"><h2>App Experience</h2><p style="margin-bottom: 2rem;">Beautiful interface, smooth interactions</p></div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+          <div class="glass-card floating-card" style="padding: 1rem; width: 220px; text-align: center;"><i class="fas fa-credit-card" style="font-size: 2.5rem; color:#6C3BFF;"></i><p style="margin-top: 0.5rem;">Payments</p><img src="https://placehold.co/180x320/ffffff/8B5CFF?text=UI+Screen" style="width:100%; border-radius: 1.5rem; margin-top: 0.8rem;"></div>
+          <div class="glass-card floating-card" style="padding: 1rem; width: 220px; text-align: center; animation-delay: 0.3s;"><i class="fas fa-chart-pie" style="font-size: 2.5rem; color:#6C3BFF;"></i><p style="margin-top: 0.5rem;">Analytics</p><img src="https://placehold.co/180x320/ffffff/B084FF?text=Insights" style="width:100%; border-radius: 1.5rem; margin-top: 0.8rem;"></div>
+          <div class="glass-card floating-card" style="padding: 1rem; width: 220px; text-align: center; animation-delay: 0.6s;"><i class="fas fa-shield-alt" style="font-size: 2.5rem; color:#6C3BFF;"></i><p>Security Hub</p><img src="https://placehold.co/180x320/f8f9ff/6C3BFF?text=Fingerprint" style="width:100%; border-radius: 1.5rem; margin-top: 0.8rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section>
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+          <div style="flex: 1;"><i class="fas fa-shield-virus" style="font-size: 3rem; color:#8B5CFF;"></i><h2 style="margin: 1rem 0;">Bank-grade security</h2><p>All transactions encrypted with 256-bit SSL. Your data is never shared. Biometric authentication, real-time fraud monitoring, and insured deposits keep your funds safe 24/7.</p><div style="margin-top: 1.5rem;"><i class="fas fa-check-circle" style="color:#6C3BFF;"></i> <span>PCI DSS Level 1 Certified</span><br><i class="fas fa-lock"></i> <span>Privacy-first architecture</span></div></div>
+          <div style="flex: 1; text-align: center;"><div class="glass-card" style="padding: 2rem;"><i class="fas fa-shield-alt" style="font-size: 5rem; color: #8B5CFF;"></i><h3>Secure & Trusted</h3><p>+500k transactions protected daily</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section with animated counters -->
+    <section style="background: var(--bg-secondary);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; text-align: center;">
+          <div><div class="stat-number" data-target="180">0</div><p>Active Users (k)</p></div>
+          <div><div class="stat-number" data-target="1250">0</div><p>Million Transactions</p></div>
+          <div><div class="stat-number" data-target="240">0</div><p>Partner Services</p></div>
+          <div><div class="stat-number" data-target="98">0</div><p>Customer Satisfaction %</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+      <div class="container">
+        <h2 style="text-align: center;">Trusted by thousands</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; justify-content: center;">
+          <div class="glass-card" style="padding: 1.8rem; max-width: 320px;"><i class="fas fa-star" style="color: #FFD966;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p style="margin: 1rem 0;">"Hamyon changed the way I manage money. Super fast and gorgeous design."</p><h4>- Emma L.</h4></div>
+          <div class="glass-card" style="padding: 1.8rem; max-width: 320px;"><i class="fas fa-star" style="color: #FFD966;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p style="margin: 1rem 0;">"The security features give me peace of mind. Best digital wallet ever!"</p><h4>- James K.</h4></div>
+          <div class="glass-card" style="padding: 1.8rem; max-width: 320px;"><i class="fas fa-star" style="color: #FFD966;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><p style="margin: 1rem 0;">"Finally a fintech app with elegant UI and real-time banking."</p><h4>- Sophia R.</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section style="background: var(--bg-secondary);">
+      <div class="container">
+        <h2 style="text-align: center;">Frequently Asked Questions</h2>
+        <div style="max-width: 800px; margin: 2rem auto;">
+          <div class="faq-question"><div style="display: flex; justify-content: space-between;"><strong>Is Hamyon free to use?</strong><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes, basic wallet features are free. Premium plans offer advanced insights & priority support.</div></div>
+          <div class="faq-question"><div style="display: flex; justify-content: space-between;"><strong>How secure are my transactions?</strong><i class="fas fa-chevron-down"></i></div><div class="faq-answer">All payments are encrypted with end-to-end security and 3D Secure authentication.</div></div>
+          <div class="faq-question"><div style="display: flex; justify-content: space-between;"><strong>Can I link external bank accounts?</strong><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely, Hamyon integrates with 200+ banks and partner services for instant access.</div></div>
+          <div class="faq-question"><div style="display: flex; justify-content: space-between;"><strong>Is there customer support 24/7?</strong><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes, our in-app chat and email support are available around the clock.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download">
+      <div class="container">
+        <div class="glass-card" style="padding: 3rem; text-align: center; background: var(--gradient-primary); color: white; border: none;">
+          <h2 style="font-size: 2rem;">Start Your Digital Finance Journey with Hamyon Today</h2>
+          <p style="margin: 1rem 0;">Join millions of users who trust Hamyon for smarter, faster finance.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"><a href="#" class="btn-grad" style="background: white; color:#6C3BFF;"><i class="fab fa-google-play"></i> Download now</a><a href="#" class="btn-outline-light" style="border-color:white; color:white;"><i class="fab fa-apple"></i> App Store</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 3rem 0 2rem; border-top: 1px solid var(--border-light);">
+      <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <div><h3 style="font-weight: 800;">Hamyon</h3><p style="color: var(--text-secondary);">Secure digital wallet for modern world</p><div style="display: flex; gap: 1.2rem; margin-top: 1rem;"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a></div></div>
+        <div><h4>Company</h4><p><a href="#">About</a></p><p><a href="#">Careers</a></p><p><a href="#">Press</a></p></div>
+        <div><h4>Legal</h4><p><a href="#">Privacy Policy</a></p><p><a href="#">Terms of Service</a></p><p><a href="#">Security</a></p></div>
+        <div><h4>Contact</h4><p>hello@hamyon.com</p><p>+1 (888) 742-9087</p></div>
+      </div>
+      <div class="container" style="text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 0.85rem;">© 2025 Hamyon. All rights reserved. Empowering digital finance.</div>
+    </footer>
+  </main>
+
+  <script>
+    // DARK MODE TOGGLE
+    const toggle = document.getElementById('darkModeToggle');
+    const icon = document.getElementById('themeIcon');
+    if(localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      if(document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        localStorage.setItem('theme', 'light');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    });
+
+    // COUNTER ANIMATION
+    const counters = document.querySelectorAll('.stat-number');
+    const startCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const updateCounter = () => {
+          const step = Math.ceil(target / 35);
+          if(count < target) {
+            count += step;
+            if(count > target) count = target;
+            counter.innerText = count;
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      });
+    };
+
+    // Intersection Observer for stats and scroll animations
+    const statSection = document.querySelector('.stat-number')?.parentElement?.parentElement?.parentElement;
+    let observed = false;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting && !observed) {
+          startCounters();
+          observed = true;
+        }
+      });
+    }, { threshold: 0.3 });
+    if(statSection) observer.observe(statSection);
+    else startCounters();
+
+    // FAQ Accordion
+    const faqs = document.querySelectorAll('.faq-question');
+    faqs.forEach(faq => {
+      const headerDiv = faq.querySelector('div:first-child');
+      headerDiv.addEventListener('click', () => {
+        faq.classList.toggle('active');
+        const iconChev = headerDiv.querySelector('i');
+        if(faq.classList.contains('active')) iconChev.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        else iconChev.classList.replace('fa-chevron-up', 'fa-chevron-down');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Glow shadow additional subtle animation
+    const heroMock = document.querySelector('.mockup-3d');
+    if(heroMock) heroMock.style.transition = 'transform 0.2s, filter 0.3s';
+  </script>
+</body>
+</html>
