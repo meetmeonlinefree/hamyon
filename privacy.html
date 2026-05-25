@@ -2,417 +2,162 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Hamyon — просто инструмент, который объединяет все ваши кошельки в одном месте. Мы не собираем никакую информацию. Никакой регистрации, никаких данных.">
-  <meta name="robots" content="index, follow">
-  <title>Hamyon — просто инструмент | Никакой информации</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Политика конфиденциальности | Hamyon — ноль данных</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0a14 0%, #12122a 100%);
-      color: #f0f0ff;
+      background: #f5f5f7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       line-height: 1.5;
-      scroll-behavior: smooth;
-      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: #111;
     }
-
-    /* Glassmorphism */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(176, 132, 255, 0.15);
-      border-radius: 2rem;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(176, 132, 255, 0.35);
-      box-shadow: 0 25px 40px -15px rgba(108, 59, 255, 0.2);
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #6C3BFF 0%, #8B5CFF 50%, #B084FF 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
     .container {
-      max-width: 1280px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 2rem;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 2.5rem;
     }
-
-    /* Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(10, 10, 20, 0.8);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(176, 132, 255, 0.1);
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.8rem;
-      background: linear-gradient(135deg, #6C3BFF, #B084FF);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-decoration: none;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid rgba(176, 132, 255, 0.5);
-      border-radius: 3rem;
-      padding: 0.5rem 1.2rem;
-      font-weight: 500;
-      color: #f0f0ff;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .btn-outline:hover {
-      border-color: #8B5CFF;
-      background: rgba(108, 59, 255, 0.15);
-    }
-
-    .btn-grad {
-      background: linear-gradient(135deg, #6C3BFF, #8B5CFF);
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 0.8rem 2rem;
-      border-radius: 3rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-
-    .btn-grad:hover {
-      transform: scale(1.02);
-      filter: brightness(1.05);
-      box-shadow: 0 10px 25px rgba(108, 59, 255, 0.4);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 4rem 0 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .badge-zero {
-      background: rgba(108, 59, 255, 0.2);
-      border: 1px solid rgba(176, 132, 255, 0.4);
-      border-radius: 3rem;
-      padding: 0.4rem 1.2rem;
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .badge-zero i {
-      color: #8B5CFF;
-      margin-right: 0.4rem;
-    }
-
     h1 {
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+    }
+    .big-zero {
+      font-size: 1.8rem;
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
+      color: #d32f2f;
+      background: #ffebee;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      margin: 1rem 0 1.5rem 0;
+      border-left: 5px solid #d32f2f;
     }
-
-    /* No-data banner */
-    .no-data-banner {
-      background: rgba(108, 59, 255, 0.12);
-      border: 1px solid rgba(176, 132, 255, 0.3);
-      border-radius: 1.5rem;
-      padding: 1.2rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 6px solid #6C3BFF;
+      padding: 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 16px;
+    }
+    .all-caps {
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    hr {
       margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #e0e0e0;
     }
-
-    .feature-icon {
-      background: linear-gradient(145deg, rgba(108, 59, 255, 0.25), rgba(176, 132, 255, 0.1));
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      color: #B084FF;
-    }
-
-    /* Privacy highlight */
-    .privacy-highlight {
-      text-align: center;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-
-    .zero-data-icon {
-      font-size: 4rem;
-      color: #8B5CFF;
-      margin-bottom: 1rem;
-    }
-
     footer {
-      padding: 3rem 0 2rem;
-      border-top: 1px solid rgba(176, 132, 255, 0.1);
       margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #6c6c7a;
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 1.5rem;
     }
-
-    @media (max-width: 768px) {
+    ul {
+      margin: 1rem 0 1rem 1.8rem;
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    @media (max-width: 600px) {
       .container {
-        padding: 0 1.5rem;
+        padding: 1.5rem;
       }
-      .no-data-banner {
-        flex-direction: column;
-        text-align: center;
+      .big-zero {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="#" class="logo">Hamyon</a>
-      <div style="display: flex; gap: 1rem; align-items: center;">
-        <a href="#privacy-statement" class="btn-outline"><i class="fas fa-shield-alt"></i> Никаких данных</a>
-        <a href="#download" class="btn-grad" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;"><i class="fab fa-apple"></i> Скачать</a>
-      </div>
+<div class="container">
+  <h1>Политика конфиденциальности <span style="color:#6C3BFF;">Hamyon</span></h1>
+  <p style="color: #555; margin-bottom: 1rem;">Последнее обновление: 25 мая 2026 г.</p>
+
+  <!-- ГЛАВНОЕ СООБЩЕНИЕ КАПСЛОКОМ -->
+  <div style="background: #1e1e2f; color: white; padding: 1.8rem; border-radius: 20px; margin: 1.5rem 0; text-align: center;">
+    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚫🔒</div>
+    <div style="font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; word-break: break-word;">
+      МЫ НЕ СОБИРАЕМ НИКАКУЮ ИНФОРМАЦИЮ
     </div>
-  </nav>
+    <div style="margin-top: 0.75rem; font-size: 1rem; opacity: 0.9;">
+      НОЛЬ (0) ДАННЫХ · НЕТ РЕГИСТРАЦИИ · НЕТ ТРЕКЕРОВ · НЕТ АНАЛИТИКИ · НЕТ COOKIE
+    </div>
+  </div>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="badge-zero">
-          <i class="fas fa-eye-slash"></i> НУЛЕВОЙ СБОР ДАННЫХ · НИКАКОЙ РЕГИСТРАЦИИ
-        </div>
-        <h1>
-          <span class="gradient-text">Все ваши кошельки</span><br>
-          в одном месте
-        </h1>
-        <p style="font-size: 1.2rem; color: #b0b0d0; max-width: 600px; margin-bottom: 2rem;">
-          Hamyon — это просто инструмент. Мы не собираем, не храним и не передаём ваши данные. 
-          Никакой регистрации, никаких паролей, никакой слежки. Просто объединяем всё в удобном интерфейсе.
-        </p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#" class="btn-grad"><i class="fab fa-google-play"></i> Google Play</a>
-          <a href="#" class="btn-grad" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); box-shadow: none;"><i class="fab fa-apple"></i> App Store</a>
-        </div>
+  <div class="highlight-box">
+    <strong style="font-size: 1.2rem;">📌 Коротко и ясно:</strong><br>
+    Hamyon — это <strong>просто локальный инструмент</strong>, который помогает вам видеть все ваши кошельки в одном интерфейсе.  
+    Мы <strong>не запрашиваем, не храним, не обрабатываем и не передаём</strong> никакие персональные данные, платёжную информацию, историю операций или что-либо ещё.  
+    Приложение работает полностью на вашем устройстве (офлайн-режим) и не отправляет данные на какие-либо серверы.
+  </div>
 
-        <!-- Главное заявление о конфиденциальности -->
-        <div class="no-data-banner">
-          <i class="fas fa-ban" style="font-size: 2rem; color: #B084FF;"></i>
-          <div>
-            <strong style="font-size: 1.1rem;">🔐 АБСОЛЮТНО НИКАКОЙ ИНФОРМАЦИИ НЕ СОБИРАЕТСЯ</strong>
-            <p style="margin-top: 0.3rem; font-size: 0.9rem;">Hamyon работает локально на вашем устройстве. Мы не запрашиваем email, телефон, не используем аналитику, не ставим трекеры. Это просто инструмент — как калькулятор.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <h2>1. Какие данные мы собираем</h2>
+  <div class="big-zero">НИКАКИХ. АБСОЛЮТНО НОЛЬ.</div>
+  <p>Hamyon <strong>не собирает</strong>:</p>
+  <ul>
+    <li>✖ Имя, email, номер телефона, адрес или любые другие персональные идентификаторы.</li>
+    <li>✖ Данные банковских карт, счета, пароли, балансы или историю транзакций.</li>
+    <li>✖ Информацию об устройстве (IMEI, MAC-адрес, модель) — приложение не запрашивает разрешения на отслеживание.</li>
+    <li>✖ Локацию, IP-адрес, данные о перемещениях.</li>
+    <li>✖ Файлы cookie, идентификаторы рекламы (IDFA/GAID) или цифровые отпечатки.</li>
+    <li>✖ Содержимое ваших сообщений, фото, контактов — мы не запрашиваем никаких разрешений на доступ к личным файлам.</li>
+  </ul>
+  <p><strong>Мы ничего не знаем о вас.</strong> Даже если вы захотите нам что-то рассказать — у нас нет формы обратной связи, которая собирала бы данные. Hamyon не имеет серверной части для хранения пользовательской информации.</p>
 
-    <!-- Features: просто объединяет кошельки -->
-    <section style="padding: 2rem 0 4rem;">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 3rem;">
-          <h2 style="font-size: 2rem;">Что делает Hamyon?</h2>
-          <p style="color: #b0b0d0; max-width: 600px; margin: 0.5rem auto 0;">Просто объединяет — без сбора данных, без регистрации</p>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem;">
-          <div class="glass-card" style="padding: 1.8rem; text-align: center;">
-            <div class="feature-icon" style="margin: 0 auto 1rem auto;"><i class="fas fa-wallet"></i></div>
-            <h3>Все кошельки в одном месте</h3>
-            <p style="color: #c0c0e0;">Банковские карты, криптокошельки, PayPal — всё в едином интерфейсе.</p>
-          </div>
-          <div class="glass-card" style="padding: 1.8rem; text-align: center;">
-            <div class="feature-icon" style="margin: 0 auto 1rem auto;"><i class="fas fa-user-secret"></i></div>
-            <h3>Никакой регистрации</h3>
-            <p style="color: #c0c0e0;">Открыли приложение — и пользуетесь. Никаких аккаунтов и паролей.</p>
-          </div>
-          <div class="glass-card" style="padding: 1.8rem; text-align: center;">
-            <div class="feature-icon" style="margin: 0 auto 1rem auto;"><i class="fas fa-database"></i></div>
-            <h3>Данные только на вашем устройстве</h3>
-            <p style="color: #c0c0e0;">Вся информация остаётся локально. Мы ничего не загружаем в облако.</p>
-          </div>
-          <div class="glass-card" style="padding: 1.8rem; text-align: center;">
-            <div class="feature-icon" style="margin: 0 auto 1rem auto;"><i class="fas fa-charging-station"></i></div>
-            <h3>Быстрый доступ</h3>
-            <p style="color: #c0c0e0;">Мгновенный переход к любому сервису — без лишних шагов.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <h2>2. Как работает Hamyon (технически)</h2>
+  <p>Приложение представляет собой <strong>локальный органайзер</strong>. Оно лишь отображает ярлыки / иконки ваших установленных кошельков (например, ссылки на другие приложения) и позволяет быстро между ними переключаться. Вся информация о том, какие кошельки вы добавили, сохраняется <strong>исключительно локально</strong> на вашем устройстве (в изолированном хранилище приложения). Никакие данные не покидают ваш телефон.</p>
+  <ul>
+    <li>✅ Нет облачных синхронизаций.</li>
+    <li>✅ Нет регистрации или входа в аккаунт.</li>
+    <li>✅ Нет API-запросов к сторонним серверам (кроме проверки обновлений самого приложения через магазины приложений).</li>
+    <li>✅ Нет аналитических SDK (Firebase, AppsFlyer, Mixpanel и т.д.).</li>
+  </ul>
+  <p>Hamyon не может и никогда не будет получать доступ к вашим деньгам, совершать переводы или читать историю операций из ваших банковских приложений — это технически невозможно, так как приложение не запрашивает таких разрешений.</p>
 
-    <!-- Секция: Мы ничего не знаем о вас -->
-    <section style="padding: 2rem 0;">
-      <div class="container">
-        <div class="glass-card privacy-highlight" id="privacy-statement">
-          <div class="zero-data-icon">
-            <i class="fas fa-shield-halos"></i>
-          </div>
-          <h2 style="font-size: 1.8rem; margin-bottom: 1rem;"><span class="gradient-text">Мы не знаем, кто вы</span></h2>
-          <p style="max-width: 700px; margin: 0 auto; color: #c0c0e0; font-size: 1.05rem;">
-            Hamyon работает как обычный локальный инструмент. Мы не собираем персональные данные, не отслеживаем ваши действия, 
-            не используем аналитику и не передаём информацию третьим лицам. Потому что нам это просто не нужно — мы всего лишь 
-            объединяем ваши кошельки в одном удобном месте.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem;">
-            <div><i class="fas fa-check-circle" style="color: #8B5CFF;"></i> Нет email-рассылок</div>
-            <div><i class="fas fa-check-circle" style="color: #8B5CFF;"></i> Нет трекеров</div>
-            <div><i class="fas fa-check-circle" style="color: #8B5CFF;"></i> Нет cookie</div>
-            <div><i class="fas fa-check-circle" style="color: #8B5CFF;"></i> Нет аналитики</div>
-            <div><i class="fas fa-check-circle" style="color: #8B5CFF;"></i> Нет рекламы</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <h2>3. Передача данных третьим лицам</h2>
+  <p><strong>НИКОМУ.</strong> Поскольку мы не собираем никаких данных, передавать просто нечего. Hamyon не продаёт, не обменивает и не раскрывает информацию о вас, потому что такой информации не существует. Наши партнёры (Google Play / App Store) могут собирать стандартные анонимные данные о загрузках согласно их собственным политикам, но это не имеет отношения к работе Hamyon.</p>
+  <p>В приложении <strong>нет рекламных сетей</strong>, нет трекеров, нет пикселей Facebook, Google Analytics или любых других инструментов мониторинга поведения.</p>
 
-    <!-- Как это работает — полностью локально -->
-    <section style="padding: 2rem 0 3rem;">
-      <div class="container">
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
-          <div style="flex: 1.2;">
-            <h2 style="font-size: 1.8rem;">Это просто локальный органайзер</h2>
-            <p style="color: #b0b0d0; margin: 1rem 0;">Hamyon — это приложение-«пульт», которое показывает все ваши финансовые сервисы в одном окне. 
-              Мы не обрабатываем платежи, не видим ваши балансы, не храним историю. Всё, что вы видите — это удобные 
-              ярлыки и быстрый доступ к вашим существующим кошелькам и банковским приложениям.</p>
-            <ul style="list-style: none; margin-top: 1.5rem;">
-              <li style="margin: 0.8rem 0;"><i class="fas fa-mobile-alt" style="color: #8B5CFF; width: 1.8rem;"></i> Открываете Hamyon → видите все свои кошельки</li>
-              <li style="margin: 0.8rem 0;"><i class="fas fa-tap" style="color: #8B5CFF; width: 1.8rem;"></i> Нажимаете на нужный → переходите в приложение</li>
-              <li style="margin: 0.8rem 0;"><i class="fas fa-laptop" style="color: #8B5CFF; width: 1.8rem;"></i> Всё. Никакой магии, никакого сбора данных.</li>
-            </ul>
-          </div>
-          <div style="flex: 0.8; text-align: center;">
-            <div class="glass-card" style="padding: 2rem;">
-              <i class="fas fa-microchip" style="font-size: 3.5rem; color: #B084FF;"></i>
-              <p style="margin-top: 1rem; font-weight: 500;">Работает полностью офлайн</p>
-              <p style="font-size: 0.85rem; color: #a0a0c0;">Никаких серверов — всё на вашем устройстве</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <h2>4. Безопасность</h2>
+  <p>Поскольку Hamyon не хранит ваши данные на внешних серверах, риски утечки персональной информации сведены к нулю. Всё, что находится внутри приложения — только на вашем устройстве. Вы в любой момент можете удалить приложение, и все локальные настройки (например, список добавленных кошельков) будут удалены без возможности восстановления с нашей стороны.</p>
 
-    <!-- Сравнение: другие сервисы vs Hamyon -->
-    <section style="padding: 2rem 0;">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 2rem;">
-          <h2>Мы не похожи на другие</h2>
-          <p>Большинство приложений собирают данные. Hamyon — нет.</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-          <div class="glass-card" style="padding: 1.5rem; min-width: 250px; text-align: center;">
-            <i class="fas fa-times-circle" style="color: #ff6b6b; font-size: 2rem;"></i>
-            <p style="margin-top: 1rem;"><strong>Другие кошельки</strong><br>Email, телефон, аналитика, трекеры</p>
-          </div>
-          <div class="glass-card" style="padding: 1.5rem; min-width: 250px; text-align: center; background: rgba(108,59,255,0.15); border-color: #8B5CFF;">
-            <i class="fas fa-check-circle" style="color: #8B5CFF; font-size: 2rem;"></i>
-            <p style="margin-top: 1rem;"><strong>Hamyon</strong><br>Абсолютно ничего. Zero data collection.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <h2>5. Права пользователя</h2>
+  <p>У вас есть полное право:</p>
+  <ul>
+    <li>Не передавать никаких данных — что и так гарантировано.</li>
+    <li>Удалить приложение в любой момент — вместе со всеми его локальными данными.</li>
+    <li>Использовать Hamyon полностью анонимно — без создания учётной записи, ввода email или номера телефона.</li>
+  </ul>
 
-    <!-- CTA Section + чёткое повторение -->
-    <section id="download" style="padding: 3rem 0 4rem;">
-      <div class="container">
-        <div class="glass-card" style="padding: 3rem; text-align: center; background: linear-gradient(135deg, rgba(108,59,255,0.2), rgba(176,132,255,0.1)); border: 1px solid rgba(176,132,255,0.3);">
-          <i class="fas fa-download" style="font-size: 3rem; color: #B084FF;"></i>
-          <h2 style="margin: 1rem 0;">Просто начните пользоваться</h2>
-          <p style="max-width: 500px; margin: 0 auto 1.5rem;">Никакой регистрации. Никаких разрешений на доступ к личным данным. Скачайте и сразу используйте.</p>
-          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#" class="btn-grad"><i class="fab fa-google-play"></i> Google Play</a>
-            <a href="#" class="btn-grad" style="background: rgba(255,255,255,0.08);"><i class="fab fa-apple"></i> App Store</a>
-          </div>
-          <p style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.7;"><i class="fas fa-shield-alt"></i> Hamyon не запрашивает и не хранит ваши данные. Это просто инструмент-агрегатор.</p>
-        </div>
-      </div>
-    </section>
+  <h2>6. Изменения в политике конфиденциальности</h2>
+  <p>Если мы когда-либо будем вынуждены изменить данную политику (например, по требованию законодательства), мы обновим этот документ. Однако основополагающий принцип останется неизменным: <strong>Hamyon не собирает личные данные пользователей</strong>. Обо всех изменениях мы уведомим через обновление приложения в магазинах.</p>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; margin-bottom: 2rem;">
-          <div>
-            <h3 style="font-weight: 800;">Hamyon</h3>
-            <p style="color: #a0a0c0; margin-top: 0.3rem;">Инструмент для объединения кошельков</p>
-          </div>
-          <div>
-            <p><a href="#" style="color: #c0c0e0; text-decoration: none;"><i class="fas fa-shield-alt"></i> Политика: ноль данных</a></p>
-            <p><a href="#" style="color: #c0c0e0; text-decoration: none;"><i class="fas fa-gavel"></i> Никакой регистрации</a></p>
-          </div>
-          <div>
-            <p><i class="fas fa-envelope"></i> support@hamyon.com</p>
-            <p><i class="fab fa-twitter"></i> <i class="fab fa-github"></i> <i class="fab fa-discord"></i></p>
-          </div>
-        </div>
-        <div style="text-align: center; color: #8080a0; font-size: 0.8rem; border-top: 1px solid rgba(176,132,255,0.1); padding-top: 1.5rem;">
-          <p>© 2026 Hamyon. Hamyon не собирает, не обрабатывает и не передаёт никакие персональные данные. 
-          Приложение работает локально. Вся информация остаётся на вашем устройстве.</p>
-        </div>
-      </div>
-    </footer>
-  </main>
+  <hr>
 
-  <script>
-    // Абсолютно никакого сбора информации — даже аналитики или консольных логов пользовательских действий.
-    // Весь скрипт существует только для плавного скролла и интерфейса — без трекинга.
-    
-    // Плавный скролл для якорных ссылок
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === "#" || href === "") return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-    
-    // Никаких метрик, никаких вызовов API, никаких сохранений данных.
-    // Даже localStorage не используется для отслеживания.
-    console.log("%c🔐 Hamyon — абсолютно без сбора данных. Это просто локальный инструмент.", "color: #8B5CFF; font-size: 14px;");
-    console.log("%c❌ Нет трекеров, нет аналитики, нет регистрации, нет отправки данных.", "color: #b0b0d0;");
-  </script>
+  <div style="background: #eef2ff; border-radius: 16px; padding: 1.2rem; margin-top: 1rem;">
+    <div style="font-weight: 800; font-size: 1.1rem;">✉️ Контакты (только по вопросам, не требующим передачи данных)</div>
+    <p>Если у вас есть вопросы относительно этой политики конфиденциальности (не требующие отправки ваших персональных данных), вы можете написать нам на электронную почту: <strong>privacy@hamyon.com</strong>. Мы не можем запрашивать у вас личную информацию для ответа, поэтому никаких форм сбора данных не используем.</p>
+  </div>
+
+  <footer>
+    © 2026 Hamyon. Все права защищены.<br>
+    Hamyon — инструмент для объединения кошельков. <strong>Мы не собираем, не храним и не обрабатываем никакие данные.</strong>
+  </footer>
+</div>
 </body>
 </html>
