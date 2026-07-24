@@ -1,62 +1,93 @@
 name: Send Firebase Push
 
 on:
+  # Когда меняются JSON файлы
   push:
     paths:
       - "**/*.json"
+  
+  # Ежедневный запуск курса RUB
+  schedule:
+    - cron: "0 5 * * *"
+  
+  # Возможность ручного запуска
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Notification mode (daily_rate or changes)'
+        required: true
+        default: 'daily_rate'
+        type: choice
+        options:
+          - daily_rate
+          - changes
 
 jobs:
-
   notify:
-
     runs-on: ubuntu-latest
-
+    
     permissions:
       contents: read
-
+      id-token: write
+    
     steps:
-
       # Получаем код репозитория
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-
-
-      # Авторизация Firebase через Service Account
+      
+      # Авторизация Firebase
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-
-
-      # Устанавливаем Google Cloud SDK
+      
+      # Установка Google Cloud SDK
       - name: Setup Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
-
-
-      # Получаем токен для Firebase HTTP v1
+      
+      # Получаем Firebase Access Token
       - name: Get Firebase Access Token
+        id: get_token
         run: |
-
           ACCESS_TOKEN=$(gcloud auth application-default print-access-token)
-
           echo "ACCESS_TOKEN=$ACCESS_TOKEN" >> $GITHUB_ENV
-
-
-      # Устанавливаем Python зависимости
+          echo "✅ Access token generated"
+      
+      # Python зависимости
       - name: Install Python dependencies
         run: |
-
-          pip install requests
-
-
-      # Запускаем анализ изменений и отправку Push
+          pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml
+          echo "✅ Python dependencies installed"
+      
+      # Определяем тип запуска
+      - name: Define notification mode
+        id: set_mode
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.mode }}" = "daily_rate" ]; then
+            echo "NOTIFICATION_MODE=daily_rate" >> $GITHUB_ENV
+            echo "🔔 Mode: Daily Rate"
+          else
+            echo "NOTIFICATION_MODE=changes" >> $GITHUB_ENV
+            echo "🔔 Mode: File Changes"
+          fi
+      
+      # Отправка Push
       - name: Send Push Notification
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           ACCESS_TOKEN: ${{ env.ACCESS_TOKEN }}
-
+          NOTIFICATION_MODE: ${{ env.NOTIFICATION_MODE }}
         run: |
-
+          echo "📤 Sending notification..."
           python scripts/send_push.py
+      
+      # Логирование результата
+      - name: Log result
+        if: always()
+        run: |
+          echo "✅ Push workflow completed"
+          echo "📊 Mode: ${{ env.NOTIFICATION_MODE }}"
+          echo "🕐 Time: $(date)"
