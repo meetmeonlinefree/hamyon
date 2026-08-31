@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
 from telegram import Bot
 from telegram.constants import ParseMode
-import schedule
 
 # --- Настройки ---
 # Читаем токен из защищенных настроек GitHub
@@ -135,14 +134,6 @@ def job():
 
 
 # --- Планировщик ---
-# Указываем время ежедневной отправки (например, в 08:00 утра)
-schedule.every().day.at("08:00").do(job)
-
-# Для тестирования прямо сейчас можно раскомментировать строчку ниже:
-# job()
-
-print("Бот-парсер запущен и ожидает назначенного времени (08:00)...")
-
-while True:
-  schedule.run_pending()
-  time.sleep(1)
+# Запуск задачи при старте скрипта (GitHub сам вызовет её в нужное время)
+if __name__ == "__main__":
+    job()
