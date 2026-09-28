@@ -2,7 +2,7 @@ name: Daily Currency Bot
 
 on:
   schedule:
-    - cron: '30 3 * * *' # Время по UTC (08:30 утра по Душанбе)
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 jobs:
