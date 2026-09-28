@@ -8,7 +8,7 @@ on:
   
   # Ежедневный запуск курса RUB
   schedule:
-    - cron: "0 5 * * *"
+    - cron: '0 3 * * *'
   
   # Возможность ручного запуска
   workflow_dispatch:
